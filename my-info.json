@@ -1,0 +1,15 @@
+{
+    "favorite_colors": [
+        "purple lilac",
+        "black",
+        "skyblue"
+    ],
+    "country": "Switzerland",
+    "population": 8812387,
+    "will_visit_in_5_years": true,
+    "favorite_foods": {
+        "first": "Sashimi",
+        "second": "Beef",
+        "third": "Curry Rice"
+    }
+}
