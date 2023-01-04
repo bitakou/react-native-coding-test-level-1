@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from "react-native"
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native'
 import DateTimePicker from '@react-native-community/datetimepicker'
-import { useForm, Controller } from "react-hook-form"
-import { useState } from "react"
+import { useForm, Controller } from 'react-hook-form'
+import { useState } from 'react'
 
-const FormScreen = ({ navigation, route }) => {
+const FormScreen = () => {
   const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       name: '',
@@ -16,7 +16,7 @@ const FormScreen = ({ navigation, route }) => {
   const [date, setDate] = useState(today)
   const [formatDate, setFormatDate] = useState('')
   const screenWidth = Dimensions.get('screen').width
-  const onSubmit = data => alert("Your name is " + data.name + "\nYour email is " + (data.email ? data.email : "not input") + "\nYour birthday is " + (formatDate ? formatDate : formatToday))
+  const onSubmit = data => alert('Your name is ' + data.name + '\nYour email is ' + (data.email ? data.email : 'not input') + '\nYour birthday is ' + (formatDate ? formatDate : formatToday))
 
   const setSelectedDate = (event, selectedDate) => {
     setDate(selectedDate)
@@ -27,14 +27,14 @@ const FormScreen = ({ navigation, route }) => {
     const fieldName = errors.ref.name.charAt(0).toUpperCase() + errors.ref.name.slice(1)
 
     switch (errors.type) {
-      case "required":
-        return fieldName + " is required"
-      case "pattern":
-        return "Please enter a valid " + fieldName + "'s pattern"
-      case "maxLength":
-        return "Please enter no more than 50 characters"
+      case 'required':
+        return fieldName + ' is required'
+      case 'pattern':
+        return 'Please enter a valid ' + fieldName + '\'s pattern'
+      case 'maxLength':
+        return 'Please enter no more than 50 characters'
       default:
-        return "Validation error"
+        return 'Validation error'
     }
   }
 
@@ -58,7 +58,7 @@ const FormScreen = ({ navigation, route }) => {
             />
           </View>
         )}
-        name="name"
+        name='name'
       />
       {errors.name ? <Text style={styles.errorInput}>{handleError(errors.name)}</Text> : <Text style={styles.errorContainer}>Validation</Text>}
 
@@ -78,7 +78,7 @@ const FormScreen = ({ navigation, route }) => {
             />
           </View>
         )}
-        name="email"
+        name='email'
       />
       {errors.email ? <Text style={styles.errorInput}>{handleError(errors.email)}</Text> : <Text style={styles.errorContainer}>Validation</Text>}
 
@@ -97,12 +97,12 @@ const FormScreen = ({ navigation, route }) => {
             </View>
           </View>
         )}
-        name="birthday"
+        name='birthday'
       />
 
       <TouchableOpacity
         style={styles.button}
-        title="Submit"
+        title='Submit'
         onPress={handleSubmit(onSubmit)}
       >
         <Text>Submit</Text>
@@ -120,21 +120,21 @@ const styles = StyleSheet.create({
     marginVertical: 5
   },
   input: {
-    alignItems: "center",
-    backgroundColor: "lavender",
+    alignItems: 'center',
+    backgroundColor: 'lavender',
     padding: 10,
     marginHorizontal: 10
   },
   errorInput: {
-    color: "red",
+    color: 'red',
     marginLeft: 10
   },
   errorContainer: {
     opacity: 0
   },
   button: {
-    alignItems: "center",
-    backgroundColor: "powderblue",
+    alignItems: 'center',
+    backgroundColor: 'powderblue',
     padding: 10,
     marginTop: 30
   }
